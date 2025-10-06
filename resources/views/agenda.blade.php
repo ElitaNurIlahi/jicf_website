@@ -65,6 +65,7 @@
                 ];
                 $total_items = count($agenda_data);
             @endphp
+
             
             {{-- Loop untuk menampilkan item agenda --}}
             @foreach ($agenda_data as $index => $item)

@@ -30,8 +30,8 @@
 
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
             <button onclick="goToSlide(0)" class="carousel-dot w-3 h-3 rounded-full bg-white"></button>
-            <button onclick="goToSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white/50"></button>
-            <button onclick="goToSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white/50"></button>
+            <button onclick="goToSlide(1)" class="carousel-dot w-3 h-3 rounded-full bg-white/15"></button>
+            <button onclick="goToSlide(2)" class="carousel-dot w-3 h-3 rounded-full bg-white/15"></button>
         </div>
     </div>
 </section>
@@ -44,7 +44,7 @@ const dots = document.querySelectorAll('.carousel-dot');
 function showSlide(index) {
     slides.forEach((s, i) => s.style.opacity = i === index ? '1' : '0');
     dots.forEach((d, i) => {
-        d.className = `carousel-dot w-3 h-3 rounded-full ${i === index ? 'bg-white' : 'bg-white/50'}`;
+        d.className = `carousel-dot w-3 h-3 rounded-full ${i === index ? 'bg-white' : 'bg-white/15'}`;
     });
 }
 
@@ -56,7 +56,7 @@ function goToSlide(i) {
 setInterval(() => {
     currentSlide = (currentSlide + 1) % 3;
     showSlide(currentSlide);
-}, 4000);
+}, 2000);
 
 slides.forEach(s => s.style.transition = 'opacity 1s ease-in-out');
 </script>
