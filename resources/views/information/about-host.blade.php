@@ -11,9 +11,9 @@
                 <span style="position: absolute; bottom: 0; left: 0; width: 60px; height: 4px; background: #ff6b35;"></span>
             </h1>
 
-            <img src="{{ asset('images/kppu-building.jpg') }}" 
+            <img src="{{ asset('images/kppu.png') }}" 
                  alt="KPPU Building" 
-                 style="width: 100%; max-width: 700px; height: auto; margin: 40px auto; display: block; border-radius: 8px;">
+                 style="width: 100%; max-width: 200px; height: auto; margin: 40px auto; display: block; border-radius: 8px;">
 
             <div style="color: #333; font-size: 16px; line-height: 1.8;">
                 <p style="margin-bottom: 20px;">

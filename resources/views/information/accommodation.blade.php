@@ -15,10 +15,11 @@
                 For our out-of-town guests, Gedung Dhanapala is surrounded by a variety of excellent hotel options to suit every need and budget. You can find well-known establishments such as Hotel Borobudur Jakarta, Oasis Amir Hotel, and Lumire Hotel & Convention Center within a short distance. These hotels offer a range of amenities and are conveniently located to ensure a comfortable stay and easy access to the event. We recommend booking your accommodations in advance to secure the best rates and availability.
             </p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+            <div class="hotel-grid-container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+               
                 <!-- Hotel 1 -->
                 <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                    <img src="{{ asset('images/hotel-borobudur.jpg') }}" alt="Hotel Borobudur Jakarta" style="width: 100%; height: 220px; object-fit: cover;">
+                    <img src="{{ asset('images/borobudur.jpg') }}" alt="Hotel Borobudur Jakarta" style="width: 100%; height: 220px; object-fit: cover;">
                     <div style="padding: 25px;">
                         <h3 style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px;">Hotel Borobudur Jakarta</h3>
                         <div style="color: #FFA500; font-size: 16px; margin-bottom: 15px;">★★★★★</div>
@@ -33,7 +34,7 @@
 
                 <!-- Hotel 2 -->
                 <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                    <img src="{{ asset('images/aryaduta-hotel.jpg') }}" alt="Aryaduta Hotel" style="width: 100%; height: 220px; object-fit: cover;">
+                    <img src="{{ asset('images/aryaduta.jpg') }}" alt="Aryaduta Hotel" style="width: 100%; height: 220px; object-fit: cover;">
                     <div style="padding: 25px;">
                         <h3 style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px;">Aryaduta Hotel</h3>
                         <div style="color: #FFA500; font-size: 16px; margin-bottom: 15px;">★★★★</div>
@@ -48,7 +49,7 @@
 
                 <!-- Hotel 3 -->
                 <div style="background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                    <img src="{{ asset('images/lumire-hotel.jpg') }}" alt="Lumire Hotel & Convention" style="width: 100%; height: 220px; object-fit: cover;">
+                    <img src="{{ asset('images/lumiere.jpg') }}" alt="Lumire Hotel & Convention" style="width: 100%; height: 220px; object-fit: cover;">
                     <div style="padding: 25px;">
                         <h3 style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 10px;">Lumire Hotel & Convention</h3>
                         <div style="color: #FFA500; font-size: 16px; margin-bottom: 15px;">★★★★</div>
@@ -64,4 +65,18 @@
         </div>
     </div>
 </div>
+
+<style>
+@media (max-width: 900px) {
+    .hotel-grid-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .hotel-grid-container {
+        grid-template-columns: 1fr !important;
+    }
+}
+</style>
 @endsection
