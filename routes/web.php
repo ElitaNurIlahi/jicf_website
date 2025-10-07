@@ -7,6 +7,10 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RegistrationController as AdminRegistrationController;
 use App\Http\Controllers\Admin\SettingController;
+// Tambahkan di bagian atas file:
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\SpeakerController;
+use App\Http\Controllers\Admin\PresentationController;
 
 // Public Routes
 Route::get('/', [PageController::class, 'home'])->name('home');
@@ -15,6 +19,11 @@ Route::get('/registration', [PageController::class, 'registration'])->name('regi
 Route::post('/registration', [RegistrationController::class, 'store'])->name('registration.store');
 Route::get('/agenda', [PageController::class, 'agenda'])->name('agenda');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
+// Tambahkan di bawah blok Public Routes yang sudah ada
+
+// Speaker Registration (Public)
+Route::get('/speaker-submission', [RegistrationController::class, 'showSpeakerForm'])->name('speaker.form');
+Route::post('/speaker-submission', [RegistrationController::class, 'storeSpeaker'])->name('speaker.store');
 
 // Information routes
 Route::prefix('information')->name('information.')->group(function () {
@@ -44,5 +53,26 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::delete('/registrations/{id}', [AdminRegistrationController::class, 'destroy'])->name('registrations.destroy');
         Route::get('/settings', [SettingController::class, 'index'])->name('settings');
         Route::post('/settings', [SettingController::class, 'update'])->name('settings.update');
+
+        // ... (Di dalam Route::middleware('auth:admin')->group(function () { ... }))
+
+        // Pengelolaan Events (CRUD & Approval)
+        Route::resource('events', EventController::class)->except(['show']);
+        Route::post('events/{event}/approve', [EventController::class, 'approve'])->name('events.approve');
+        Route::post('events/{event}/reject', [EventController::class, 'reject'])->name('events.reject');
+        // Route untuk generate QR Event jika belum ada
+        // Route::post('events/{event}/generate-qr', [EventController::class, 'generateQr'])->name('events.generate-qr');
+
+
+        // Pengelolaan Speakers (CRUD & Approval)
+        Route::resource('speakers', SpeakerController::class)->except(['show']);
+        Route::post('speakers/{speaker}/approve', [SpeakerController::class, 'approve'])->name('speakers.approve');
+        Route::post('speakers/{speaker}/reject', [SpeakerController::class, 'reject'])->name('speakers.reject');
+
+
+        // Pengelolaan Presentations (CRUD & Approval Jadwal)
+        Route::resource('presentations', PresentationController::class)->except(['show']);
+        Route::post('presentations/{presentation}/approve', [PresentationController::class, 'approve'])->name('presentations.approve');
+        Route::post('presentations/{presentation}/reject', [PresentationController::class, 'reject'])->name('presentations.reject');
     });
 });

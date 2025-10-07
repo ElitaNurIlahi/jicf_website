@@ -1,59 +1,32 @@
 <?php
 
+// app/Http/Controllers/Admin/SettingController.php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class SettingController extends Controller
 {
-    public function home()
+    public function index()
     {
-        return view('home');
+        $maxCapacity = Setting::get('max_capacity', 300);
+        $eventDate = Setting::get('event_date');
+
+        return view('admin.settings', compact('maxCapacity', 'eventDate'));
     }
 
-    public function about()
+    public function update(Request $request)
     {
-        return view('about-jicf');
-    }
+        $request->validate([
+            'max_capacity' => 'required|integer|min:1',
+            'event_date' => 'required|date'
+        ]);
 
-    public function registration()
-    {
-        return view('registration');
-    }
+        Setting::set('max_capacity', $request->max_capacity);
+        Setting::set('event_date', $request->event_date);
 
-    public function agenda()
-    {
-        return view('agenda');
-    }
-
-    public function contact()
-    {
-        return view('contact');
-    }
-
-    public function aboutHost()
-    {
-        return view('information.about-host');
-    }
-
-    public function venue()
-    {
-        return view('information.venue');
-    }
-
-    public function accommodation()
-    {
-        return view('information.accommodation');
-    }
-
-    public function socialActivity()
-    {
-        return view('information.social-activity');
-    }
-
-    public function aboutJakarta()
-    {
-        return view('information.about-jakarta');
+        return back()->with('success', 'Pengaturan berhasil disimpan.');
     }
 }

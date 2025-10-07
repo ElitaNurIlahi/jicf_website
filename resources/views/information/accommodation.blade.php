@@ -112,21 +112,22 @@ const hotelData = {
         name: 'Hotel Borobudur Jakarta',
         stars: 5,
         address: 'Jl. Lap. Banteng Selatan No.1, Ps. Baru, Jakarta Pusat 10710',
-        map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.8662738876837!2d106.83682831476898!3d-6.165803995527038!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5d2e764b12d%3A0x3d2ad6e1e0e9bcc8!2sHotel%20Borobudur%20Jakarta!5e0!3m2!1sen!2sid!4v1234567890'
+        map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.666031550679!2d106.8301576!3d-6.1761393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5cc097e35db%3A0x7302b729335a095b!2sHotel%20Borobudur%20Jakarta!5e0!3m2!1sen!2sid!4v1686405845813!5m2!1sen!2sid'
     },
     hotel2: {
-        name: 'Aryaduta Hotel',
-        stars: 4,
+        name: 'Aryaduta Menteng',
+        stars: 5,
         address: 'Jl. Prajurit KKO Usman dan Harun No.44-48, Jakarta Pusat 10110',
-        map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7234567890!2d106.82345!3d-6.1534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMDknMTIuMiJTIDEwNsKwNDknMjQuNCJF!5e0!3m2!1sen!2sid!4v1234567890'
+        map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7234567890!2d106.8349063!3d-6.1815392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f431511b4705%3A0x5e50ddbbad3cd0d4!2sAryaduta%20Menteng!5e0!3m2!1sen!2sid!4v1686405923413!5m2!1sen!2sid'
     },
     hotel3: {
         name: 'Lumire Hotel & Convention',
         stars: 4,
         address: 'Jl. Senen Raya No.135, Senen, Jakarta Pusat 10410',
-        map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6234567890!2d106.84567!3d-6.1678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTAnMDQuMSJTIDEwNsKwNTAnNDQuNCJF!5e0!3m2!1sen!2sid!4v1234567890'
+        map: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.6234567890!2d106.8426763!3d-6.1741593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f43551ca9263%3A0x4949ba549b582667!2sLumire%20Hotel%20%26%20Convention!5e0!3m2!1sen!2sid!4v1686405978413!5m2!1sen!2sid'
     }
 };
+
 
 function openModal(hotelId) {
     const hotel = hotelData[hotelId];

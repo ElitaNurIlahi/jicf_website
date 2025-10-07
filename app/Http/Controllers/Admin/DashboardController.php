@@ -1,59 +1,35 @@
 <?php
 
+// app/Http/Controllers/Admin/DashboardController.php
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Registration;
+use App\Models\Setting;
+use Carbon\Carbon;
 
 class DashboardController extends Controller
 {
-    public function home()
+    public function index()
     {
-        return view('home');
-    }
+        $totalRegistrations = Registration::count();
+        $pendingCount = Registration::pending()->count();
+        $approvedCount = Registration::approved()->count();
+        $rejectedCount = Registration::rejected()->count();
+        
+        $maxCapacity = Setting::get('max_capacity', 300);
+        $eventDate = Setting::get('event_date', Carbon::now()->addDays(30)->format('Y-m-d'));
+        
+        $recentRegistrations = Registration::latest()->take(10)->get();
 
-    public function about()
-    {
-        return view('about-jicf');
-    }
-
-    public function registration()
-    {
-        return view('registration');
-    }
-
-    public function agenda()
-    {
-        return view('agenda');
-    }
-
-    public function contact()
-    {
-        return view('contact');
-    }
-
-    public function aboutHost()
-    {
-        return view('information.about-host');
-    }
-
-    public function venue()
-    {
-        return view('information.venue');
-    }
-
-    public function accommodation()
-    {
-        return view('information.accommodation');
-    }
-
-    public function socialActivity()
-    {
-        return view('information.social-activity');
-    }
-
-    public function aboutJakarta()
-    {
-        return view('information.about-jakarta');
+        return view('admin.dashboard', compact(
+            'totalRegistrations',
+            'pendingCount',
+            'approvedCount',
+            'rejectedCount',
+            'maxCapacity',
+            'eventDate',
+            'recentRegistrations'
+        ));
     }
 }
